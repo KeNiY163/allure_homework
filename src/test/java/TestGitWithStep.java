@@ -1,5 +1,7 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -8,7 +10,7 @@ import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 
-public class TestGitWithStep {
+public class TestGitWithStep extends BaseTest {
 
     private static final String Repos = "KeNiY163/allure_homework";
     private static final String IssueName = "Hello Allure!";

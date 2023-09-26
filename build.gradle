@@ -35,8 +35,10 @@ dependencies {
     testImplementation(
             'org.junit.jupiter:junit-jupiter-api:5.9.3',
             'com.codeborne:selenide:6.17.2',
-            'io.qameta.allure:allure-selenide:2.19.0'
+            'io.qameta.allure:allure-selenide:2.23.0'
     )
+
+    runtimeOnly group: 'org.aspectj', name: 'aspectjrt', version: '1.9.19'
 
     testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.9.0')
 }
@@ -44,4 +46,5 @@ dependencies {
 test {
     useJUnitPlatform()
     systemProperties(System.getProperties())
+    jvmArgs "-noverify"
 }

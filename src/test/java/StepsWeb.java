@@ -10,7 +10,7 @@ import org.openqa.selenium.TakesScreenshot;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 
-public class StepsWeb {
+public class StepsWeb extends BaseTest {
 
     @Step("Открытие целевой страницы")
     public void openMainPage(){
