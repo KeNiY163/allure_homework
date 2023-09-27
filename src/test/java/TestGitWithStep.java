@@ -1,7 +1,5 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -12,8 +10,8 @@ import static io.qameta.allure.Allure.step;
 
 public class TestGitWithStep extends BaseTest {
 
-    private static final String Repos = "KeNiY163/allure_homework";
-    private static final String IssueName = "Hello Allure!";
+    private static final String REPOS = "KeNiY163/allure_homework";
+    private static final String ISSUENAME = "Hello Allure!";
 
     @Test
     @DisplayName("Проверка наличия ишью в репозитории с именем \"Hello Allure!\"")
@@ -23,36 +21,36 @@ public class TestGitWithStep extends BaseTest {
             Selenide.open("https://github.com/");
         });
 
-        step("Поиск репозитория " + Repos, () -> {
+        step("Поиск репозитория " + REPOS, () -> {
             $(".search-input-container").click();
-            $("#query-builder-test").setValue(Repos).pressEnter();
+            $("#query-builder-test").setValue(REPOS).pressEnter();
         });
 
-        step("Нажатие по найденому репозиторию " + Repos, () -> {
-            $(By.linkText(Repos)).click();
+        step("Нажатие по найденому репозиторию " + REPOS, () -> {
+            $(By.linkText(REPOS)).click();
         });
 
         step("Открытие ишью репозитория", () -> {
             $("#issues-tab").click();
         });
 
-        step("Проверка наличия в списке ишью с названием " + IssueName, () -> {
-            $(withText(IssueName)).should(Condition.exist);
+        step("Проверка наличия в списке ишью с названием " + ISSUENAME, () -> {
+            $(withText(ISSUENAME)).should(Condition.exist);
         });
 
     }
 
     @Test
     @DisplayName("Проверка наличия ишью в репозитории с названием \"Hello Allure!\" и с выполнением пошаговой модели теста")
-    public void AnnotatedStepTest(){
+    public void annotatedStepTest(){
 
         StepsWeb steps = new StepsWeb();
 
         steps.openMainPage();
-        steps.searchRepository(Repos);
-        steps.clickOnRepositoryLink(Repos);
+        steps.searchRepository(REPOS);
+        steps.clickOnRepositoryLink(REPOS);
         steps.openIssuesTab();
-        steps.shouldSeeIssue(IssueName);
+        steps.shouldSeeIssue(ISSUENAME);
 
     }
 
